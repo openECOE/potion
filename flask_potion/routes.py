@@ -401,7 +401,7 @@ class Relation(RouteSet, ResourceBound):
         io = self.io
         rule = '/{}'.format(attribute_to_route_uri(self.attribute))
 
-        relation_route = ItemRoute(rule='{}/<{}:target_id>'.format(rule, self.target.meta.id_converter))
+        relation_route = ItemRoute(rule=rule)
         relations_route = ItemRoute(rule=rule)
 
         if "r" in io:
