@@ -435,8 +435,7 @@ class Relation(RouteSet, ResourceBound):
                                              response_schema=ToOne(self.target),
                                              schema=ToOne(self.target))
 
-            def relation_remove(resource, item, target_id):
-                target_item = self.target.manager.read(target_id)
+            def relation_remove(resource, item, target_item):
                 resource.manager.relation_remove(item, self.attribute, self.target, target_item)
                 resource.manager.commit()
                 return None, 204
