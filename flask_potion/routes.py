@@ -443,5 +443,7 @@ class Relation(RouteSet, ResourceBound):
 
             yield relation_route.for_method('DELETE',
                                             relation_remove,
-                                            rel=to_camel_case('remove_{}'.format(self.attribute)))
+                                            rel=to_camel_case('remove_{}'.format(self.attribute)),
+                                            response_schema=ToOne(self.target),
+                                            schema=ToOne(self.target))
 
